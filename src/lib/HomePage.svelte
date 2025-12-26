@@ -48,7 +48,9 @@
     { title: 'kat0hのホームページ', description: 'kat0h.com', href: 'https://kat0h.com/' },
     { title: 'McbeEringi Home', description: 'mcbeeringi.github.io', href: 'https://mcbeeringi.github.io/' },
     { title: 'VOID', description: 'k1h.dev', href: 'https://www.k1h.dev' },
-    {title: 'はんかくくんのページ', description: 'kqiita.github.io', href: 'https://kqiita.github.io/' },
+    { title: 'はんかくくんのページ', description: 'kqiita.github.io', href: 'https://kqiita.github.io/' },
+    { title: 'るーどっとでぶ', description: 'ruuu.dev', href: 'https://ruuu.dev/' },
+    { title: 'y-chan\'s website', description: 'y-chan.dev', href: 'https://y-chan.dev/' },
   ];
 </script>
 
