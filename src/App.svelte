@@ -37,6 +37,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+  <title>りんりん</title>
+	<meta property="og:url" content="https://lnln.dev" />
+	<meta property="og:title" content="りんりん" />
+	<meta name="twitter:card" content="summary" />
 </svelte:head>
 
 <Router>
