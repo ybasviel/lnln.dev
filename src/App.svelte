@@ -3,6 +3,7 @@
   import { Router, Route } from 'svelte-routing';
   import HomePage from './lib/HomePage.svelte';
   import RedirectPage from './lib/RedirectPage.svelte';
+  import { initPixelBurst } from './lib/pixelBurst';
   
   onMount(() => {
     // Apply dark mode based on system preference
@@ -17,7 +18,18 @@
     updateTheme(mediaQuery);
     mediaQuery.addEventListener('change', updateTheme);
     
-    return () => mediaQuery.removeEventListener('change', updateTheme);
+    // ピクセルバーストエフェクトを初期化
+    const cleanupPixelBurst = initPixelBurst({
+      particleCount: 10,
+      particleSize: 10,
+      distance: 50,
+      burstDuration: 250
+    });
+    
+    return () => {
+      mediaQuery.removeEventListener('change', updateTheme);
+      cleanupPixelBurst();
+    };
   });
 </script>
 
