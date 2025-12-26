@@ -23,8 +23,8 @@
   ];
   
   const qualifications = [
-    { title: '応用情報技術者試験', description: '2025' },
-    { title: 'エンベデッドシステムスペシャリスト試験', description: '2025' },
+    { title: '応用情報技術者試験', description: '2025-07' },
+    { title: 'エンベデッドシステムスペシャリスト試験', description: '2025-12' },
   ];
   
   const snsLinks = [
