@@ -8,7 +8,7 @@
   
   let { title, description, href }: Props = $props();
   
-  const isLink = !!href;
+  const isLink = $derived(!!href);
 </script>
 
 {#snippet pixelArrow()}
