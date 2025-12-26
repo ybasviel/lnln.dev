@@ -43,43 +43,8 @@ function getPageBottom(): number {
 	);
 }
 
-// スタイルを注入
-function injectStyles() {
-	if (document.getElementById('pixel-burst-styles')) return;
+import '../style/pixelBurst.css';
 
-	const style = document.createElement('style');
-	style.id = 'pixel-burst-styles';
-	style.textContent = `
-		.pixel-burst-particle {
-			position: absolute;
-			background-color: white;
-			pointer-events: none;
-			z-index: 9999;
-			border: 1px solid #ccc;
-			box-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
-		}
-		
-		.pixel-burst-particle.bursting {
-			animation: pixel-burst-anim var(--duration) ease-out forwards;
-		}
-		
-		@keyframes pixel-burst-anim {
-			0% {
-				transform: translate(-50%, -50%) translate(0px, 0px) scale(0);
-				opacity: 1;
-			}
-			50% {
-				transform: translate(-50%, -50%) translate(calc(var(--tx) * 0.7), calc(var(--ty) * 0.7)) scale(1);
-				opacity: 1;
-			}
-			100% {
-				transform: translate(-50%, -50%) translate(var(--tx), var(--ty)) scale(1);
-				opacity: 1;
-			}
-		}
-	`;
-	document.head.appendChild(style);
-}
 
 // 物理シミュレーションのアニメーションループ
 function updatePhysics() {
@@ -173,8 +138,6 @@ function createBurst(centerX: number, centerY: number, options: PixelBurstOption
 		particleCount = defaultOptions.particleCount + Math.floor(Math.random() * 5),
 		burstDuration = defaultOptions.burstDuration
 	} = options;
-
-	injectStyles();
 
 	for (let i = 0; i < particleCount; i++) {
 		const angle = (i / particleCount) * 360 + Math.random() * 30 - 15;
