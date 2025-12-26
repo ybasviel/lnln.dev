@@ -46,12 +46,28 @@ function getPageBottom(): number {
 import '../style/pixelBurst.css';
 
 
+// パーティクルを削除する関数
+function removeParticle(particle: Particle, index: number) {
+	// DOMから削除
+	particle.element.remove();
+	
+	// particles配列から削除
+	particles.splice(index, 1);
+	
+	// groundedParticlesからも削除（もし含まれていれば）
+	const groundedIndex = groundedParticles.indexOf(particle.element);
+	if (groundedIndex !== -1) {
+		groundedParticles.splice(groundedIndex, 1);
+	}
+}
+
 // 物理シミュレーションのアニメーションループ
 function updatePhysics() {
 	const pageBottom = getPageBottom();
 	let hasMovingParticles = false;
 
-	for (const particle of particles) {
+	for (let i = particles.length - 1; i >= 0; i--) {
+		const particle = particles[i];
 		if (particle.grounded) continue;
 
 		// 重力を適用
@@ -66,12 +82,10 @@ function updatePhysics() {
 
 		// 壁との衝突判定（ページ幅）
 		const pageWidth = document.documentElement.scrollWidth;
-		if (particle.x < particle.size / 2) {
-			particle.x = particle.size / 2;
-			particle.vx *= -defaultOptions.bounceFactor;
-		} else if (particle.x > pageWidth - particle.size / 2) {
-			particle.x = pageWidth - particle.size / 2;
-			particle.vx *= -defaultOptions.bounceFactor;
+		if (particle.x < particle.size / 2 || particle.x > pageWidth - particle.size / 2) {
+			// 壁と衝突したら削除
+			removeParticle(particle, i);
+			continue;
 		}
 
 		// 地面との衝突判定（ページの一番下）
