@@ -1,0 +1,36 @@
+/* Pixel navigation button */
+.pixel-btn {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1rem;
+	background-color: #f9fafb;
+	color: #1f2937;
+	border: 3px solid #1f2937;
+	box-shadow: 3px 3px 0 #1f2937;
+	transition: background-color 0.15s, color 0.15s;
+	position: relative;
+	cursor: pointer;
+}
+
+.pixel-btn:hover {
+	transform: translate(4px, 4px);
+	box-shadow: 0px 0px 0px #1f2937;
+	background-color: #fff7ed;
+	color: #c2410c;
+	text-decoration: none;
+}
+
+.dark .pixel-btn {
+	background-color: #1e293b;
+	color: #e2e8f0;
+	border-color: #475569;
+	box-shadow: 3px 3px 0 #475569;
+}
+
+.dark .pixel-btn:hover {
+	transform: translate(4px, 4px);
+	box-shadow: 0px 0px 0px #475569;
+	background-color: #334155;
+	color: #fb923c;
+}

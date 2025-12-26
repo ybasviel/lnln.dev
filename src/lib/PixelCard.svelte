@@ -1,4 +1,5 @@
 <script lang="ts">
+  import "../style/pixelBtn.css";
   interface Props {
     title: string;
     description?: string;
@@ -57,7 +58,7 @@
     {href}
     target="_blank" 
     rel="noopener noreferrer"
-    class="group flex items-center justify-between p-4 pixel-box bg-gray-50 dark:bg-slate-800 hover:bg-orange-50 dark:hover:bg-slate-700 transition-colors"
+    class="pixel-btn"
   >
     {@render cardContent()}
   </a>
