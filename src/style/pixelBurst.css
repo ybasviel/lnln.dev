@@ -1,10 +1,10 @@
 .pixel-burst-particle {
 	position: absolute;
-	background-color: white;
+	background-color: rgb(250, 250, 250);
 	pointer-events: none;
 	z-index: 9999;
-	border: 1px solid #ccc;
-	box-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+	border: 1px solid rgb(110, 110, 110);
+	box-shadow: 0 0 4px rgba(150, 150, 150, 0.8);
 }
 
 .pixel-burst-particle.bursting {
