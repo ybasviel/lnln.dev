@@ -213,30 +213,52 @@ function createBurst(centerX: number, centerY: number, options: PixelBurstOption
 
 // グローバルなクリックハンドラを設定
 export function initPixelBurst(options: PixelBurstOptions = {}) {
-	function handleClick(event: MouseEvent | TouchEvent) {
-		let x: number, y: number;
+	let lastTouchTime = 0;
+	let lastTouchX = 0;
+	let lastTouchY = 0;
+	const TOUCH_DEBOUNCE_MS = 300; // 300ms以内の重複を防ぐ
+	const TOUCH_DISTANCE_THRESHOLD = 10; // 10px以内の距離を同じタップとみなす
 
-		if (event instanceof TouchEvent) {
-			const touch = event.touches[0] || event.changedTouches[0];
-			// pageX/pageY を使用してページ座標を取得
-			x = touch.pageX;
-			y = touch.pageY;
-		} else {
-			// pageX/pageY を使用してページ座標を取得
-			x = event.pageX;
-			y = event.pageY;
+	function handleTouch(event: TouchEvent) {
+		const touch = event.touches[0] || event.changedTouches[0];
+		const x = touch.pageX;
+		const y = touch.pageY;
+		const now = Date.now();
+
+		// 短時間内に同じ位置でタッチされた場合は無視（デバウンス）
+		const timeDiff = now - lastTouchTime;
+		const distance = Math.sqrt(
+			Math.pow(x - lastTouchX, 2) + Math.pow(y - lastTouchY, 2)
+		);
+
+		if (timeDiff < TOUCH_DEBOUNCE_MS && distance < TOUCH_DISTANCE_THRESHOLD) {
+			return;
 		}
+
+		lastTouchTime = now;
+		lastTouchX = x;
+		lastTouchY = y;
 
 		createBurst(x, y, options);
 	}
 
+	function handleClick(event: MouseEvent) {
+		// タッチイベントの直後に発火したclickイベントは無視
+		const now = Date.now();
+		if (now - lastTouchTime < TOUCH_DEBOUNCE_MS) {
+			return;
+		}
+
+		createBurst(event.pageX, event.pageY, options);
+	}
+
+	document.addEventListener('touchstart', handleTouch, { passive: true });
 	document.addEventListener('click', handleClick);
-	document.addEventListener('touchstart', handleClick, { passive: true });
 
 	// クリーンアップ関数を返す
 	return () => {
 		document.removeEventListener('click', handleClick);
-		document.removeEventListener('touchstart', handleClick);
+		document.removeEventListener('touchstart', handleTouch);
 		
 		// 全パーティクルを削除
 		for (const p of particles) {
