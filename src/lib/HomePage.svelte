@@ -14,13 +14,6 @@
     description: `しがない工学徒`,
     skills: ['Vue', 'Svelte', 'Python', 'TypeScript', 'Embedded C++', 'PostScript' ],
   };
-
-  const sections = [
-    { id: 'about', label: 'About' },
-    { id: 'qualifications', label: 'Qualifications' },
-    { id: 'sns', label: 'SNS' },
-    { id: 'activities', label: 'Activities' },
-  ];
   
   const qualifications = [
     { title: '応用情報技術者試験', description: '2025-07' },
@@ -77,16 +70,6 @@
         <a href="/" class="text-xl tracking-wide hover:text-orange-500 transition-colors">
           [lnln.dev]
         </a>
-        <div class="hidden sm:flex items-center gap-6">
-          {#each sections as section}
-            <a 
-              href="#{section.id}" 
-              class="text-sm text-gray-600 dark:text-slate-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors"
-            >
-              &gt; {section.label}
-            </a>
-          {/each}
-        </div>
       </div>
     </div>
   </nav>
