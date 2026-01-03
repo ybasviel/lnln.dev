@@ -15,7 +15,11 @@
   });
 
   function goToNms() {
-    window.location.href = targetUrl;
+    if (pageName === 'blog') {
+      window.location.href = targetUrl + '/blog';
+    } else {
+      window.location.href = targetUrl;
+    }
   }
 
   function goToHome() {
