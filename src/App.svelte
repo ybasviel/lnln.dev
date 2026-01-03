@@ -40,6 +40,7 @@
   <title>りんりん</title>
 	<meta property="og:url" content="https://lnln.dev" />
 	<meta property="og:title" content="りんりん" />
+	<meta property="og:description" content="りんりんの個人ページ" />
 	<meta name="twitter:card" content="summary" />
 </svelte:head>
 
