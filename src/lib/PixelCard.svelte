@@ -11,13 +11,31 @@
   const isLink = $derived(!!href);
 </script>
 
-{#snippet pixelArrow()}
+{#snippet pixelCheck()}
   <svg class="w-4 h-4 text-orange-500 shrink-0" viewBox="0 0 16 16" fill="currentColor">
-    <rect x="2" y="6" width="4" height="4" />
-    <rect x="6" y="4" width="4" height="4" />
-    <rect x="6" y="8" width="4" height="4" />
-    <rect x="10" y="2" width="4" height="4" />
-    <rect x="10" y="10" width="4" height="4" />
+    <rect x="0" y="8" width="2" height="4" />
+    <rect x="2" y="10" width="2" height="4" />
+    <rect x="4" y="12" width="2" height="4" />
+     
+
+    <rect x="6" y="10" width="2" height="4" />
+    <rect x="8" y="8" width="2" height="4" />
+    <rect x="10" y="6" width="2" height="4" />
+    <rect x="12" y="4" width="2" height="4" />
+  </svg>
+{/snippet}
+
+{#snippet pixelLink()}
+  <svg class="w-4 h-4 text-orange-500 shrink-0" viewBox="0 0 16 16" fill="currentColor">
+    <rect x="2" y="4" width="5" height="2" />
+    <rect x="9" y="4" width="5" height="2" />
+    <rect x="2" y="10" width="5" height="2" />
+    <rect x="9" y="10" width="5" height="2" />
+
+    <rect x="0" y="6" width="2" height="4" />
+    <rect x="14" y="6" width="2" height="4" />
+
+    <rect x="5" y="7" width="6" height="2" />
   </svg>
 {/snippet}
 
@@ -34,7 +52,11 @@
 
 {#snippet cardContent()}
   <div class="flex items-center gap-3 flex-1 min-w-0">
-    {@render pixelArrow()}
+    {#if isLink}
+      {@render pixelLink()}
+    {:else}
+      {@render pixelCheck()}
+    {/if}
     <div class="min-w-0">
       <span class="text-gray-800 dark:text-slate-200 {isLink ? 'group-hover:text-orange-600 dark:group-hover:text-orange-400' : ''} transition-colors">
         {title}
