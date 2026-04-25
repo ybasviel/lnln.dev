@@ -11,7 +11,7 @@
   
   // ===== プロフィール設定 =====
   const about = {
-    description: `しがない工学徒`,
+    description: '工学趣味サラリーマン',
     skills: ['Vue', 'Svelte', 'Python', 'TypeScript', 'Embedded C++', 'PostScript' ],
   };
   
