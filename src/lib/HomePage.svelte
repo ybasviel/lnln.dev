@@ -40,8 +40,6 @@
     { title: 'ごっち', description: 'gotti.dev', href: 'https://gotti.dev' },
     { title: 'アイスの棒', description: 'azukibar.dev', href: 'https://azukibar.dev' },
     { title: '捻れたバベル', description: 'hutinoatari.dev', href: 'https://www.hutinoatari.dev/' },
-    { title: 'もちもちのめも', description: 'mocchan.dev', href: 'https://mocchan.dev' },
-    { title: 'ファンサイト', description: 'elmer9.github.io', href: 'https://elmer9.github.io/' },
     { title: 'へる破壊財団', description: 'helkun.dev', href: 'https://helkun.dev/' },
     { title: 'ゆいのページ', description: 'yuino.dev', href: 'https://yuino.dev/' },
     { title: 'あづみのメモ帳', description: 'dg7.dev', href: 'https://dg7.dev/' },
@@ -51,6 +49,7 @@
     { title: 'はんかくくんのページ', description: 'kqiita.github.io', href: 'https://kqiita.github.io/' },
     { title: 'るーどっとでぶ', description: 'ruuu.dev', href: 'https://ruuu.dev/' },
     { title: 'y-chan\'s website', description: 'y-chan.dev', href: 'https://y-chan.dev/' },
+    { title: 'Laddgeのページ', description: 'laddge.net', href: 'https://laddge.net/' },
   ];
 </script>
 
