@@ -34,6 +34,16 @@
       description: '趣味のものづくり', 
       href: 'https://nms.lnln.dev'
     },
+    { 
+      title: 'UEC Bug Bounty 2025-2026', 
+      description: '最優秀賞', 
+      href: ''
+    },
+    { 
+      title: 'U☆PoC～UECアイディア実証コンテスト2025～', 
+      description: '大学奨励賞,濱坂賞,トゥモロー・ネット賞, EATEC賞', 
+      href: ''
+    },
   ];
 
   const mutalLinks = [
